@@ -12,5 +12,12 @@ class Products{
     private int $related;
     private string $color;
 
+    public function displayStock(){
+        return '<span class="bg-teal-500 text-2xl px-2 py-1 rounded">' . $this->stock . '</span>';
+    }
+
+    public function getStock(){
+        return $this->stock;
+    }
 
 }

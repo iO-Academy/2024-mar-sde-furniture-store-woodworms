@@ -6,6 +6,16 @@ require_once 'src/Entities/Categories.php';
 require_once 'src/Entities/Products.php';
 
 $db = PDO_Factory::connect();
+
+$categoryDetails = CategoriesModel::getCategories($db);
+//$stockNumbers = ProductsModel::getStock($db, $_GET['category_id']);
+
+//$categoryList = [];
+//
+//foreach ($categoryDetails as $category){
+//    array_push($category);
+//}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,38 +34,48 @@ $db = PDO_Factory::connect();
     <p>We have a wide range of products in the below categories, start by selecting the kind of product you are looking for</p>
 </header>
 <section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-10">
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Chair</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">54</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Table</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">42</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Sofa</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">33</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Desk</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">67</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Office Chair</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">54</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Bookcase</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">42</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Chest</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">33</span>
-    </div>
-    <div class="flex justify-between items-center bg-slate-100 p-5">
-        <h3 class="text-2xl">Drawers</h3>
-        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">67</span>
-    </div>
+
+    <?php
+    foreach ($categoryDetails as $category){
+        echo '<div class="flex justify-between items-center bg-slate-100 p-5">';
+        echo $category->displayByCategory();
+//        echo $products->
+        echo '</div>';
+    }
+    ?>
+
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Chair</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">54</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Table</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">42</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Sofa</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">33</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Desk</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">67</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Office Chair</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">54</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Bookcase</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">42</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Chest</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">33</span>-->
+<!--    </div>-->
+<!--    <div class="flex justify-between items-center bg-slate-100 p-5">-->
+<!--        <h3 class="text-2xl">Drawers</h3>-->
+<!--        <span class="bg-teal-500 text-2xl px-2 py-1 rounded">67</span>-->
+<!--    </div>-->
 </section>
 <footer class="container mx-auto md:w-2/3 border-t mt-10 pt-5">
     <p>© Copyright iO Academy 2022</p>
