@@ -1,10 +1,11 @@
 <?php
 
-require_once 'src/Entities/Categories.php';
+require_once 'src/Entities/Category.php';
 
-Class CategoriesModel{
-
-    public static function getCategories(PDO $db){
+class CategoryModel
+{
+    public static function getCategories(PDO $db): array
+    {
         $query = $db->prepare('
             SELECT `categories`.`id`, `categories`.`name`, SUM(`products`.`stock`)
             AS `total_stock`
@@ -13,9 +14,7 @@ Class CategoriesModel{
             ON `categories`.`id` = `products`.`category_id`
             GROUP BY `categories`.`id`, `categories`.`name`;');
         $query->execute();
-
-        $query->setFetchMode(PDO::FETCH_CLASS, Categories::class);
+        $query->setFetchMode(PDO::FETCH_CLASS, Category::class);
         return $query->fetchAll();
     }
-
 }

@@ -1,12 +1,11 @@
 <?php
 
-require_once 'src/Factories/PDO_Factory.php';
-require_once 'src/Models/CategoriesModel.php';
-require_once 'src/Entities/Categories.php';
+require_once 'src/Factories/PdoFactory.php';
+require_once 'src/Models/CategoryModel.php';
 
-$db = PDO_Factory::connect();
+$db = PdoFactory::connect();
 
-$categoryDetails = CategoriesModel::getCategories($db);
+$categoryDetails = CategoryModel::getCategories($db);
 
 ?>
 
@@ -28,10 +27,9 @@ $categoryDetails = CategoriesModel::getCategories($db);
 <section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-10">
 
     <?php
-    foreach ($categoryDetails as $category){
-        echo '<div class="flex justify-between items-center bg-slate-100 p-5">';
+    foreach ($categoryDetails as $category)
+    {
         $category->displayByCategory();
-        echo '</div>';
     }
     ?>
 
