@@ -31,7 +31,7 @@ $categoryDetails = CategoryModel::getCategories($db);
     <?php
     foreach ($categoryDetails as $category)
     {
-        CategoryDisplayService::displayByCategory($category->getCategoryName(), $category->getCategoryStock());
+        echo CategoryDisplayService::displayByCategory($category->getCategoryName(), $category->getCategoryStock());
     }
     ?>
 
