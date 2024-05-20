@@ -3,7 +3,6 @@
 require_once 'src/Factories/PDO_Factory.php';
 require_once 'src/Models/CategoriesModel.php';
 require_once 'src/Entities/Categories.php';
-require_once 'src/Entities/Products.php';
 
 $db = PDO_Factory::connect();
 
