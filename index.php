@@ -2,6 +2,8 @@
 
 require_once 'src/Factories/PdoFactory.php';
 require_once 'src/Models/CategoryModel.php';
+require_once 'src/Services/CategoryDisplayService.php';
+
 
 $db = PdoFactory::connect();
 
@@ -29,7 +31,7 @@ $categoryDetails = CategoryModel::getCategories($db);
     <?php
     foreach ($categoryDetails as $category)
     {
-        $category->displayByCategory();
+        CategoryDisplayService::displayByCategory($category->getCategoryName(), $category->getCategoryStock());
     }
     ?>
 
