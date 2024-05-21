@@ -7,7 +7,8 @@ require_once 'src/Services/CategoryDisplayService.php';
 
 $db = PdoFactory::connect();
 
-$categoryDetails = CategoryModel::getCategories($db);
+$categoryDetails = CategoryModel::getCategories();
+//($_GET['cat_id'], $db);
 
 ?>
 

@@ -12,5 +12,10 @@ class Category
     {
         return $this->total_stock;
     }
+
+    public function getCategoryId()
+    {
+        return $this->id;
+    }
 }
 

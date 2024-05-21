@@ -12,7 +12,7 @@ class CategoryModel
             FROM `categories`
             LEFT JOIN `products`
             ON `categories`.`id` = `products`.`category_id`
-            GROUP BY `categories`.`id`, `categories`.`name`;');
+            GROUP BY `categories`.`id`, `categories`.`name`');
         $query->execute();
         $query->setFetchMode(PDO::FETCH_CLASS, Category::class);
         return $query->fetchAll();
