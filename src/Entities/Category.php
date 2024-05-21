@@ -1,14 +1,12 @@
 <?php
-
 class Category
 {
     private int $id;
     private string $name;
     private int $total_stock;
-
     public function getCategoryName()
     {
-    return $this->name;
+        return $this->name;
     }
     public function getCategoryStock()
     {
