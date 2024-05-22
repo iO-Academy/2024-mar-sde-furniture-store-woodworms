@@ -2,9 +2,9 @@
 
 require_once './src/Entities/Product.php';
 
-class CurrencyDisplayService
+class CurrencyFormatter
 {
-    public static function getCurrency($price, $locale, $currency)
+    public static function getCurrency(float $price, string $locale, string $currency)
     {
         $fmt = numfmt_create( $locale, NumberFormatter::CURRENCY);
         return numfmt_format_currency($fmt, $price, $currency);

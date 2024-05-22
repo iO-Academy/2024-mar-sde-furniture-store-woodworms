@@ -1,6 +1,6 @@
 <?php
 
-require_once 'src/Services/CurrencyDisplayService.php';
+require_once 'src/Services/CurrencyFormatterService.php';
 
 class Product
 {
@@ -25,7 +25,7 @@ class Product
 
     public function getProductPrice()
     {
-        return CurrencyDisplayService::getCurrency($this->price, 'en-GB', "GBP");
+        return CurrencyFormatter::getCurrency($this->price, 'en-GB', "GBP");
     }
     public function getProductStock()
     {

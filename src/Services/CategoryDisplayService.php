@@ -6,7 +6,6 @@ class CategoryDisplayService
 {
     public static function displayByCategory(Category $category): string
     {
-
             return '<div class="bg-slate-100 p-5">
             <div class="flex justify-between items-center">
             <h3 class="text-2xl">' . $category->getCategoryName() . '</h3>

@@ -3,7 +3,7 @@
 require_once 'src/Services/ProductListDisplayService.php';
 use PHPUnit\Framework\TestCase;
 
-class ProductListDisplayTest extends TestCase
+class ProductListDisplayServiceTest extends TestCase
 {
     public function testDisplayCategoryTitle_Success()
     {

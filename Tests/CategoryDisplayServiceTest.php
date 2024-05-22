@@ -3,7 +3,7 @@
 require_once 'src/Services/CategoryDisplayService.php';
 use PHPUnit\Framework\TestCase;
 
-class CategoryDisplayTest extends TestCase
+class CategoryDisplayServiceTest extends TestCase
 {
     public function testDisplayByCategoryMock()
     {

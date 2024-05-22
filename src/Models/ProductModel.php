@@ -25,15 +25,14 @@ class ProductModel
         $query->execute([':cat_id' => $cat_id]);
         $cat_array =  $query->fetch();
         return $cat_array['name'];
-
     }
 
-    public static function getNumberOfCategories($cat_id, PDO $db) : int
+    public static function getNumberOfCategories(PDO $db) : int
     {
         $query = $db->prepare('SELECT `categories`.`name`
         FROM `categories`');
         $query->execute();
-        $q = $query->fetch();
+        $q = $query->fetchAll();
         return count($q);
     }
 
