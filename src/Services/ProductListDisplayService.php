@@ -9,7 +9,7 @@ class ProductListDisplayService
     public static function displayCategoryTitle(Product $productsInfo): string
     {
         return'<header class="container mx-auto md:w-2/3 md:mt-10 py-16 px-8 bg-slate-200 rounded">
-        <h1 class="text-5xl mb-2">Category:' . $productsInfo->getCategoryName() . '</h1>
+        <h1 class="text-5xl mb-2">Category: ' . $productsInfo->getCategoryName() . '</h1>
         <p>For more information about any of the below products, click on the more button.</p>
         </header>';
     }
