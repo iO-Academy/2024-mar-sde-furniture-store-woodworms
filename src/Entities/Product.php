@@ -14,25 +14,25 @@ class Product
 
     private int $id;
 
-    public function getProductId()
+    public function getProductId() : int
     {
         return $this->id;
     }
-    public function getCategoryName()
+    public function getCategoryName() : string
     {
         return $this->name;
     }
 
-    public function getProductPrice()
+    public function getProductPrice() : string
     {
         return CurrencyFormatter::getCurrency($this->price, 'en-GB', "GBP");
     }
-    public function getProductStock()
+    public function getProductStock() : int
     {
         return $this->stock;
     }
 
-    public function getProductColor()
+    public function getProductColor() : string
     {
         return $this->color;
     }

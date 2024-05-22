@@ -14,8 +14,8 @@ $NumberOfCategories = ProductModel::getNumberOfCategories($db);
 if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
     if ($_GET['cat_id'] <= $NumberOfCategories && $_GET['cat_id'] > 0) {
         $cat_id = intval($_GET['cat_id']);
-        $productList = ProductModel::getProductList($cat_id, $db);
-        $categoryTitle = ProductModel::getProductTitle($cat_id, $db);
+        $productList = ProductModel::getProductByCatId($cat_id, $db);
+        $categoryTitle = ProductModel::getCatTitleById($cat_id, $db);
     }
     else{
         $categoryTitle = 'Invalid ID';
@@ -51,7 +51,7 @@ if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
     <section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-5">
     <?php
     foreach ($productList as $productsInfo) {
-        echo ProductListDisplayService::displayProductList($productsInfo);
+        echo ProductListDisplayService::displayProductByCategory($productsInfo);
     }
     ?>
     </section>

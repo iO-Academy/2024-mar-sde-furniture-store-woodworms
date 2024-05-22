@@ -30,7 +30,7 @@ $categoryDetails = CategoryModel::getCategories($db);
     <?php
     foreach ($categoryDetails as $category)
     {
-        echo CategoryDisplayService::displayByCategory($category);
+        echo CategoryDisplayService::displayCategorySummary($category);
     }
     ?>
 </section>

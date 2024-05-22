@@ -13,7 +13,7 @@ class ProductListDisplayService
         </header>';
     }
 
-    public static function displayProductList(Product $productsInfo): string
+    public static function displayProductByCategory(Product $productsInfo): string
     {
         return '
           <div class="bg-slate-100 p-5">

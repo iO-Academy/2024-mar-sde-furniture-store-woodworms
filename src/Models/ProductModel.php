@@ -4,7 +4,7 @@ require_once 'src/Entities/Product.php';
 
 class ProductModel
 {
-    public static function getProductList($cat_id, PDO $db): array
+    public static function getProductByCatId(int $cat_id, PDO $db): array
     {
         $query = $db->prepare('SELECT `categories`.`name`, `products`.`id`, 
        `products`.`price`, `products`.`stock`, `products`.`color`
@@ -17,7 +17,7 @@ class ProductModel
         return $query->fetchAll();
     }
 
-    public static function getProductTitle($cat_id, PDO $db) : string
+    public static function getCatTitleById(int $cat_id, PDO $db) : string
     {
         $query = $db->prepare('SELECT `categories`.`name`
         FROM `categories`

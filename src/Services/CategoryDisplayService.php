@@ -4,7 +4,7 @@
 require_once 'src/Entities/Category.php';
 class CategoryDisplayService
 {
-    public static function displayByCategory(Category $category): string
+    public static function displayCategorySummary(Category $category): string
     {
             return '<div class="bg-slate-100 p-5">
             <div class="flex justify-between items-center">
