@@ -36,6 +36,7 @@ class Product
     {
         return $this->color;
     }
+
 }
 
 
