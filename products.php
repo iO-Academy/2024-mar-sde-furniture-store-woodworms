@@ -25,7 +25,12 @@ $categoryDetails = CategoryModel::getCategories($db);
     <span class="text-4xl text-white">Furniture Store</span>
 </nav>
 <?php
-    echo ProductListDisplayService::displayCategoryTitle($productsInfo);
+    echo ProductListDisplayService::displayCategoryTitle($productList[0]);
+    ?>
+    <div class="container mx-auto md:w-2/3 mt-5">
+    <a href="index.php" class="text-blue-500">Back</a>
+    </div>
+    <?php
     foreach ($productList as $productsInfo)
 {
     echo ProductListDisplayService::displayProductList($productsInfo);

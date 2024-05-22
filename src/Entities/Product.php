@@ -1,5 +1,7 @@
 <?php
 
+require_once 'src/Services/CurrencyDisplayService.php';
+
 class Product
 {
     private string $color;
@@ -23,9 +25,8 @@ class Product
 
     public function getProductPrice()
     {
-        return $this->price;
+        return CurrencyDisplayService::getCurrency($this->price, 'en-GB', "GBP");
     }
-
     public function getProductStock()
     {
         return $this->stock;
