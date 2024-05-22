@@ -7,8 +7,7 @@ require_once 'src/Services/CategoryDisplayService.php';
 
 $db = PdoFactory::connect();
 
-$categoryDetails = CategoryModel::getCategories();
-//($_GET['cat_id'], $db);
+$categoryDetails = CategoryModel::getCategories($db);
 
 ?>
 
@@ -28,14 +27,12 @@ $categoryDetails = CategoryModel::getCategories();
     <p>We have a wide range of products in the below categories, start by selecting the kind of product you are looking for</p>
 </header>
 <section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-10">
-
     <?php
     foreach ($categoryDetails as $category)
     {
         echo CategoryDisplayService::displayByCategory($category);
     }
     ?>
-
 </section>
 <footer class="container mx-auto md:w-2/3 border-t mt-10 pt-5">
     <p>© Copyright iO Academy 2022</p>
