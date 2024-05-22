@@ -16,8 +16,7 @@ class ProductListDisplayService
 
     public static function displayProductList(Product $productsInfo): string
     {
-        return '
-          <section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-5">
+        return '<section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-5">
           <div class="bg-slate-100 p-5">
           <div class="flex justify-between items-center">
           <h3 class="text-2xl">Price: '. $productsInfo->getProductPrice() .'</h3>

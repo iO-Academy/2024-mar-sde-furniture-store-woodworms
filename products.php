@@ -9,8 +9,6 @@ require_once 'src/Entities/Product.php';
 $db = PdoFactory::connect();
 
 $productList = ProductModel::getProductList($_GET['cat_id'], $db);
-$categoryDetails = CategoryModel::getCategories($db);
-
 
 ?>
 <!DOCTYPE html>
