@@ -18,7 +18,7 @@ class ProductListDisplayServiceTest extends TestCase
 
     public function testDisplayProductList_Success()
     {
-        $productListMock = $this->createMock(Product::class);
+        $productListMock = $this->createMock(ProductEntity::class);
         $productListMock->method('getProductPrice')->willReturn('£10.99');
         $productListMock->method('getProductStock')->willReturn(111);
         $productListMock->method('getProductColor')->willReturn('Green');

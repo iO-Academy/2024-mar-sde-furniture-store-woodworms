@@ -2,13 +2,17 @@
 
 require_once 'src/Services/CurrencyFormatterService.php';
 
-class Product
+class ProductEntity
 {
     private string $color;
     private int $stock;
     private float $price;
     private string $name;
     private int $id;
+    private int $depth;
+    private int $width;
+    private int $height;
+
 
     public function getProductId(): int
     {
@@ -33,6 +37,21 @@ class Product
     public function getProductColor(): string
     {
         return $this->color;
+    }
+
+    public function getProductWidth(): int
+    {
+        return $this->width;
+    }
+
+    public function getProductDepth(): int
+    {
+        return $this->depth;
+    }
+
+    public function getProductHeight(): int
+    {
+        return $this->height;
     }
 
 }
