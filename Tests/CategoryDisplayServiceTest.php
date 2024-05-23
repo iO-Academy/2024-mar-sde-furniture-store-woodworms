@@ -5,13 +5,13 @@ use PHPUnit\Framework\TestCase;
 
 class CategoryDisplayServiceTest extends TestCase
 {
-    public function testDisplayByCategoryMock()
+    public function testDisplayCategorySummarySuccess()
     {
         $categoryMock = $this->createMock(Category::class);
         $categoryMock->method('getCategoryName')->willReturn('Fridge');
         $categoryMock->method('getCategoryStock')->willReturn(100);
         $categoryMock->method('getCategoryId')->willReturn(5);
-        $result = CategoryDisplayService::displayByCategory($categoryMock);
+        $result = CategoryDisplayService::displayCategorySummary($categoryMock);
         $expectedResult = '<div class="bg-slate-100 p-5">
             <div class="flex justify-between items-center">
             <h3 class="text-2xl">Fridge</h3>
@@ -22,9 +22,10 @@ class CategoryDisplayServiceTest extends TestCase
         $this->assertSame($expectedResult, $result);
     }
 
-    public function testDisplayByCategoryMalformed()
+    public function testDisplayCategorySummaryMalformed()
     {
         $this->expectException(TypeError::class);
-        CategoryDisplayService::displayByCategory(5);
+        CategoryDisplayService::displayCategorySummary(5);
     }
+
 }

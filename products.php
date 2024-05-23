@@ -6,20 +6,17 @@ require_once 'src/Services/ProductListDisplayService.php';
 require_once 'src/Models/CategoryModel.php';
 require_once 'src/Entities/Product.php';
 
-$categoryTitle = 'Oops! Invalid product ID';
+$category = false;
 $productList = [];
 $db = PdoFactory::connect();
-$NumberOfCategories = ProductModel::getNumberOfCategories($db);
 
 if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
-    if ($_GET['cat_id'] <= $NumberOfCategories && $_GET['cat_id'] > 0) {
         $cat_id = intval($_GET['cat_id']);
-        $productList = ProductModel::getProductByCatId($cat_id, $db);
-        $categoryTitle = ProductModel::getCatTitleById($cat_id, $db);
-    }
-    else{
-        $categoryTitle = 'Invalid ID';
-    }
+        $category = CategoryModel::getCategoryById($cat_id, $db);
+        if ($category){
+            $categoryTitle = $category->getCategoryName();
+            $productList = ProductModel::getProductByCatId($cat_id, $db);
+        }
 }
 
 ?>
@@ -35,11 +32,8 @@ if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
     <span class="text-4xl text-white">Furniture Store</span>
 </nav>
     <div class="container mx-auto md:w-2/3 mt-5">
-
     <?php
-
-
-    if ($productList !== []) {
+    if ($category) {
         echo ProductListDisplayService::displayCategoryTitle($categoryTitle);
         }
     else {
@@ -51,7 +45,7 @@ if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
     <section class="container mx-auto md:w-2/3 grid md:grid-cols-4 gap-5 mt-5">
     <?php
     foreach ($productList as $productsInfo) {
-        echo ProductListDisplayService::displayProductByCategory($productsInfo);
+        echo ProductListDisplayService::displayProductSummary($productsInfo);
     }
     ?>
     </section>
