@@ -13,16 +13,16 @@ class ProductListDisplayService
         </header>';
     }
 
-    public static function displayProductSummary(ProductEntity $productsInfo): string
+    public static function displayProductSummary(ProductEntity $product): string
     {
         return '
           <div class="bg-slate-100 p-5">
           <div class="flex justify-between items-center">
-          <h3 class="text-2xl">Price: '. $productsInfo->getProductPrice() .'</h3>
-          <span class="bg-teal-500 text-2xl px-2 py-1 rounded">'. $productsInfo->getProductStock() .'</span>
+          <h3 class="text-2xl">Price: '. $product->getProductPrice() .'</h3>
+          <span class="bg-teal-500 text-2xl px-2 py-1 rounded">'. $product->getProductStock() .'</span>
           </div>
-          <p>Color: '. $productsInfo->getProductColor() .'</p>
-          <a href="product.php?id=" '. $productsInfo->getProductId() . '"class="inline-block bg-blue-600 px-3 py-2 rounded text-white mt-1">More >></a>
+          <p>Color: '. $product->getProductColor() .'</p>
+          <a href="product.php?id= '. $product->getProductId() . '"class="inline-block bg-blue-600 px-3 py-2 rounded text-white mt-1">More >></a>
           </div>';
     }
 

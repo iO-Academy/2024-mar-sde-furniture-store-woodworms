@@ -13,6 +13,8 @@ class ProductEntity
     private int $width;
     private int $height;
 
+    private int $related;
+
 
     public function getProductId(): int
     {
@@ -52,6 +54,11 @@ class ProductEntity
     public function getProductHeight(): int
     {
         return $this->height;
+    }
+
+    public function getRelatedId(): int
+    {
+        return $this->related;
     }
 
 }

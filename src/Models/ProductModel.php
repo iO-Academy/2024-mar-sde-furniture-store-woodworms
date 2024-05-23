@@ -20,7 +20,7 @@ class ProductModel
     public static function getIndividualProduct($id, PDO $db): array
     {
         $query = $db->prepare('SELECT `products`.`id`, `products`.`width`, 
-       `products`.`price`, `products`.`height`, `products`.`color`, `products`.`depth` FROM `products` 
+       `products`.`price`, `products`.`height`, `products`.`color`, `products`.`depth`, `products`.`related` FROM `products`
         WHERE `id` = :id');
         $query->execute([':id' => $id]);
         $query->setFetchMode(PDO::FETCH_CLASS, ProductEntity::class);
