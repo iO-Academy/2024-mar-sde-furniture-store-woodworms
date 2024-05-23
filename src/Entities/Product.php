@@ -22,7 +22,7 @@ class Product
 
     public function getProductPrice(): string
     {
-        return CurrencyFormatter::getCurrency($this->price, 'en-GB', "GBP");
+        return CurrencyFormatter::getCurrency($this->price, CurrencyFormatter::GBP);
     }
 
     public function getProductStock(): int
@@ -34,5 +34,4 @@ class Product
     {
         return $this->color;
     }
-
 }

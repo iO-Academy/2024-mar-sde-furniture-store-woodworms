@@ -5,7 +5,7 @@ class Category
     private string $name;
     private int $total_stock;
 
-    public function getCategoryName() : string
+    public function getCategoryName(): string
     {
         return $this->name;
     }
@@ -14,7 +14,7 @@ class Category
     {
         return $this->total_stock;
     }
-
+    
     public function getCategoryId(): int
     {
         return $this->id;

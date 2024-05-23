@@ -14,8 +14,8 @@ if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
         $cat_id = intval($_GET['cat_id']);
         $category = CategoryModel::getCategoryById($cat_id, $db);
         if ($category){
-            $categoryTitle = $category->getCategoryName();
-            $productList = ProductModel::getProductByCatId($cat_id, $db);
+        $categoryTitle = $category->getCategoryName();
+        $productList = ProductModel::getProductByCatId($cat_id, $db);
         }
 }
 
@@ -35,8 +35,7 @@ if (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
     <?php
     if ($category) {
         echo ProductListDisplayService::displayCategoryTitle($categoryTitle);
-        }
-    else {
+        } else {
         echo "<p class='text-5xl text-black my-2'>This is not a valid product page</p>";
     }
     ?>
