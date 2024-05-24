@@ -17,4 +17,15 @@ class CategoryModel
         $query->setFetchMode(PDO::FETCH_CLASS, Category::class);
         return $query->fetchAll();
     }
+
+    public static function getCategoryById(int $category_id, PDO $db): Category | false
+    {
+        $query = $db->prepare('SELECT `categories`.`name`, `categories`.`id`
+        FROM `categories`
+        WHERE `id` = :category_id');
+        $query->execute([':category_id' => $category_id]);
+        $query->setFetchMode(PDO::FETCH_CLASS, Category::class);
+        return $query->fetch();
+    }
+
 }
