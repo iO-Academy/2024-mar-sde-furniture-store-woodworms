@@ -20,13 +20,11 @@ class CurrencyFormatter
             $fmt = numfmt_create(self::$currencies[$currency], NumberFormatter::CURRENCY);
             if ($price >= 0) {
                 return numfmt_format_currency($fmt, $price, $currency);
+            } else {
+                throw new Exception('Currency conversion encountered a negative number');
             }
-            else {
-                return numfmt_format_currency($fmt, 0.00, $currency);
-            }
-        }
-        else {
-            throw new Exception('An error has occurred');
+        } else {
+            return '--.--';
         }
     }
 }

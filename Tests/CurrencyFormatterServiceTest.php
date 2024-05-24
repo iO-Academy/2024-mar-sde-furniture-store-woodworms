@@ -26,13 +26,6 @@ class CurrencyFormatterServiceTest extends TestCase
         $this->assertSame($expectedResult, $result);
     }
 
-    public function testGetCurrencySuccessNegative()
-    {
-        $result = CurrencyFormatter::getCurrency(-30.5, CurrencyFormatter::GBP);
-        $expectedResult = '£0.00';
-        $this->assertSame($expectedResult, $result);
-    }
-
     public function testGetCurrencySuccessUSD()
     {
         $result = CurrencyFormatter::getCurrency(54.30, CurrencyFormatter::USD);
@@ -42,7 +35,7 @@ class CurrencyFormatterServiceTest extends TestCase
 
     public function testGetCurrencySuccessYEN()
     {
-        $result = CurrencyFormatter::getCurrency(54.36,CurrencyFormatter::JPY);
+        $result = CurrencyFormatter::getCurrency(54.36, CurrencyFormatter::JPY);
         $expectedResult = '￥54';
         $this->assertSame($expectedResult, $result);
     }
@@ -59,10 +52,17 @@ class CurrencyFormatterServiceTest extends TestCase
         CurrencyFormatter::getCurrency(13.4, []);
     }
 
-    public function testGetCurrencyFailureCurrency()
+    public function testGetCurrencySuccessCurrency()
+    {
+        $result = CurrencyFormatter::getCurrency(13.4, 'jtfjyt');
+        $expectedResult = '--.--';
+        $this->assertSame($expectedResult, $result);
+    }
+
+    public function testGetCurrencyFailureNegative()
     {
         $this->expectException(Exception::class);
-        CurrencyFormatter::getCurrency(13.4, 'en-US');
+        CurrencyFormatter::getCurrency(-30.5, CurrencyFormatter::GBP);
     }
 
 }
