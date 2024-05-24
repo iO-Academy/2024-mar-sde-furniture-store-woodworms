@@ -7,7 +7,7 @@ class ProductModel
     public static function getProductByCatId(int $cat_id, PDO $db): array
     {
         $query = $db->prepare('SELECT `categories`.`name`, `products`.`id`, 
-       `products`.`price`, `products`.`stock`, `products`.`color`
+       `products`.`price`, `products`.`stock`, `products`.`color`, 
         FROM `products`
         LEFT JOIN `categories`
         ON `products`.`category_id`=`categories`.`id`
@@ -26,4 +26,28 @@ class ProductModel
         $query->setFetchMode(PDO::FETCH_CLASS, ProductEntity::class);
         return $query->fetchAll();
     }
+
+//    public static function getRelatedProduct($related, PDO $db): array
+//    {
+//        $query = $db->prepare('SELECT `products`.`related`, `products`.`id`, `products`.`color`, `products`.`price`
+//        FROM `products`
+//        WHERE `related` = :related');
+//        $query->execute([':related' => $related]);
+//        $query->setFetchMode(PDO::FETCH_CLASS, ProductEntity::class);
+//        return $query->fetchAll();
+//    }
+
+    public static function getRelatedByID(int $id, PDO $db): array
+    {
+        $query = $db->prepare('SELECT `products`.`id`, 
+   `products`.`price`, `products`.`stock`, `products`.`color`, `products`.`related`
+    FROM `products`
+    WHERE `related` = :related');
+        $query->execute([':related' => $id]);
+        $query->setFetchMode(PDO::FETCH_CLASS, ProductEntity::class);
+        return $query->fetchAll();
+    }
+
+
 }
+

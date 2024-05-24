@@ -22,7 +22,7 @@ class ProductListDisplayService
           <span class="bg-teal-500 text-2xl px-2 py-1 rounded">'. $product->getProductStock() .'</span>
           </div>
           <p>Color: '. $product->getProductColor() .'</p>
-          <a href="product.php?id= '. $product->getProductId() . '"class="inline-block bg-blue-600 px-3 py-2 rounded text-white mt-1">More >></a>
+          <a href="product.php?id= '. $product->getProductId() .'"class="inline-block bg-blue-600 px-3 py-2 rounded text-white mt-1">More >></a>
           </div>';
     }
 

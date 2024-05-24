@@ -6,10 +6,12 @@ require_once 'src/Services/IndividualProductDisplayService.php';
 require_once 'src/Entities/ProductEntity.php';
 
 $product = false;
+$related = false;
 $individualProduct = [];
+$relatedProduct = [];
 $db = PdoFactory::connect();
 $individualProduct = ProductModel::getIndividualProduct(($_GET['id']), $db);
-
+$relatedProduct = ProductModel::getRelatedByID(($_GET['id']), $db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +51,12 @@ $individualProduct = ProductModel::getIndividualProduct(($_GET['id']), $db);
 </section>
 
 <section class="container mx-auto md:w-2/3 border p-8 mt-10">
+    <?php
+    foreach ($relatedProduct as $related)
+    {
+        echo IndividualProductDisplayService::displayRelatedProductSummary($related);
+    }
+    ?>
 
 </section>
 
